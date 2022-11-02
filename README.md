@@ -3,7 +3,7 @@
 ## Description
 This is an application athat allows users to create, save and delete notes in one application that is shared multiple people.
 
-The application is hosted [here](https://evening-beach-60046.herokuapp.com/notes)
+The application is hosted [here](https://evening-beach-60046.herokuapp.com/)
 
 ## Table of content
 [Usage](#usage)
@@ -14,7 +14,7 @@ The application is hosted [here](https://evening-beach-60046.herokuapp.com/notes
 
 
 ## Usage
-To use this application simply navigate [to this webpage](https://evening-beach-60046.herokuapp.com/notes).
+To use this application simply navigate [to this webpage](https://evening-beach-60046.herokuapp.com/).
 
 
 ## Screenshots
