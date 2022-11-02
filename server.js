@@ -49,9 +49,10 @@ app.delete('/api/notes/:id', (req, res) => {
   for (data of db){
     if (data.id === req.params.id){
       db.splice(db.indexOf(data), 1);
+      writeToFile("./db/db.json", db);
     }
   }
-  writeToFile("./db/db.json", db);
+  res.json(db);
 })
 
 // HTML routes
