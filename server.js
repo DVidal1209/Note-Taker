@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const {v4 : uuidv4} = require("uuid");
 const { readFromFile, writeToFile, readAndAppend } = require('./helper/fsUtils');
+const fs = require('fs');
 
 
 const app = express();
@@ -45,14 +46,18 @@ app.post('/api/notes', (req, res)=> {
 
 // Node delete api route
 app.delete('/api/notes/:id', (req, res) => {
-  const db = require('./db/db.json');
-  for (data of db){
-    if (data.id === req.params.id){
-      db.splice(db.indexOf(data), 1);
-      writeToFile("./db/db.json", db);
+  readFromFile("./db/db.json")
+  .then((data) => {
+    db = JSON.parse(data);
+    console.log(db);
+    for (data of db){
+      if (data.id === req.params.id){
+        db.splice(db.indexOf(data), 1);
+        writeToFile("./db/db.json", db);
+      }
     }
-  }
-  res.json(db);
+    res.json(db);
+  })
 })
 
 // HTML routes
