@@ -29,7 +29,7 @@ app.post('/api/notes', (req, res)=> {
         const newNote = {
             title,
             text,
-            note_id : uuidv4()
+            id : uuidv4()
         }
         readAndAppend(newNote, "./db/db.json")
         const response = {
@@ -42,6 +42,11 @@ app.post('/api/notes', (req, res)=> {
           res.json('Error in posting feedback');
         }
 });
+
+// Node delete api route
+app.delete('/api/notes/:id', (req, res) => {
+  
+})
 
 // HTML routes
 app.get('/notes', (req, res) => {
