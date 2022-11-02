@@ -45,7 +45,13 @@ app.post('/api/notes', (req, res)=> {
 
 // Node delete api route
 app.delete('/api/notes/:id', (req, res) => {
-  
+  const db = require('./db/db.json');
+  for (data of db){
+    if (data.id === req.params.id){
+      db.splice(db.indexOf(data), 1);
+    }
+  }
+  writeToFile("./db/db.json", db);
 })
 
 // HTML routes
